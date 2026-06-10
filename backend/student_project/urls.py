@@ -17,8 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Student Management System is Running 🚀")
 
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
-    path('api/', include('student_app.urls')),
+    path('api/', include('student_management_system.urls')),
 ]
